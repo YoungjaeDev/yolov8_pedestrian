@@ -1,0 +1,7 @@
+train: ./raw/CrowdHuman_train/Images
+val: ./raw/CrowdHuman_val/Images
+
+nc: 1
+
+# class names
+names: ['person']
