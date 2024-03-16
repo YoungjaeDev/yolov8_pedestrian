@@ -19,11 +19,20 @@ def image_shape(jpg_path):
 def txt_line(cls, bbox, img_w, img_h):
     """Generate 1 line in the txt file, normalized by the image size."""
     x, y, w, h = bbox
+    # Ensure bbox is within image bounds
+    x, y, w, h = max(0, x), max(0, y), min(w, img_w - x), min(h, img_h - y)
+    
+    # Normalize bbox coordinates
     x_center = (x + w / 2) / img_w
     y_center = (y + h / 2) / img_h
     w_norm = w / img_w
     h_norm = h / img_h
-    return f'{cls} {x_center:.6f} {y_center:.6f} {w_norm:.6f} {h_norm:.6f}\n'
+    
+    # Check if normalized values are within bounds
+    if 0 < x_center < 1 and 0 < y_center < 1 and 0 < w_norm <= 1 and 0 < h_norm <= 1:
+        return f'{cls} {x_center:.6f} {y_center:.6f} {w_norm:.6f} {h_norm:.6f}\n'
+    else:
+        return ""
 
 def process(annotation_filename, img_dir):
     """Process annotations and save txt files in a corresponding labels directory."""
