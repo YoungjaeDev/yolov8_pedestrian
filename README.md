@@ -15,15 +15,21 @@ Train crowdhuman dataset using ultralytics yolov8
     ├── annotation_train.odgt
     ├── annotation_val.odgt
     ├── CrowdHuman_train
-    │   ├── Images
+    │   ├── images
     │   └── labels
     └── CrowdHuman_val
-        ├── Images
-        └── label
+        ├── images
+        └── labels
     ```
 
 4. Run python script. vbox is the label format of the `person` class, and it is converted to yolo format.
 
     ```bash
     python prepare_dataset/get_anno.py
+    ```
+
+5. Verify labels
+
+    ```bash
+    python prepare_data/verify_txt.py --image_dir raw/CrowdHuman_val/images/ --label_dir raw/CrowdHuman_val/labels/
     ```
