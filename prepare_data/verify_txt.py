@@ -1,5 +1,9 @@
 '''
-Usage: python prepare_data/verify_txt.py --image_dir raw/CrowdHuman_train/Images/ --label_dir raw/CrowdHuman_train/labels/
+Usage: python prepare_data/verify_txt.py --image_dir raw/CrowdHuman_train/images/ --label_dir raw/CrowdHuman_train/labels/
+or
+Usage: python prepare_data/verify_txt.py --image_dir raw/CrowdHuman_val/images/ --label_dir raw/CrowdHuman_val/labels/
+
+
 '''
 
 import cv2

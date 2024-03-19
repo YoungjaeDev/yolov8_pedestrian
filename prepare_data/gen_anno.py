@@ -1,3 +1,7 @@
+'''
+python prepare_data/gen_anno.py
+'''
+
 import json
 from pathlib import Path
 from argparse import ArgumentParser
@@ -57,8 +61,8 @@ def main():
     parser = ArgumentParser()
     parser.add_argument('--train_annotation', default='raw/annotation_train.odgt', help='Path to training annotation file.')
     parser.add_argument('--val_annotation', default='raw/annotation_val.odgt', help='Path to validation annotation file.')
-    parser.add_argument('--train_image_dir', default='raw/CrowdHuman_train/Images', help='Directory where train images are stored.')
-    parser.add_argument('--val_image_dir', default='raw/CrowdHuman_val/Images', help='Directory where val images are stored.')
+    parser.add_argument('--train_image_dir', default='raw/CrowdHuman_train/images', help='Directory where train images are stored.')
+    parser.add_argument('--val_image_dir', default='raw/CrowdHuman_val/images', help='Directory where val images are stored.')
     args = parser.parse_args()
 
     process(args.train_annotation, args.train_image_dir)
